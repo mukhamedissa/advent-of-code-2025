@@ -8,4 +8,10 @@ defmodule Utils do
     File.read!(filename)
     |> String.split("\n", trim: true)
   end
+
+  def get_lines_no_trim(filename) do
+    File.read!(filename)
+    |> String.split("\n", trim: false)
+    |> Enum.reject(&(&1 == ""))
+  end
 end
